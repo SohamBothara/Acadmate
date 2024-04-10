@@ -1,0 +1,377 @@
+body {
+  background-color: #e9d7c4;
+}
+body {
+  background-color: #e9d7c4;
+  font-family: "Signika", sans-serif;
+  color: #4d4d4d;
+  font-size: 16px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto 100px;
+}
+
+.response-group {
+  position: relative;
+  width: 100%;
+  padding: 100px 15px 15px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.new-post-button {
+  background-color: #4ab2d9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.new-post-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.new-post-popup .panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.new-post-popup h2 {
+  margin-top: 0;
+}
+
+.new-post-popup input[type="text"],
+.new-post-popup textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.new-post-popup button {
+  background-color: #4ab2d9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.new-post-popup button.cancel {
+  background-color: #ccc;
+  color: #000;
+}
+
+.new-post-form {
+  display: none;
+}
+
+/* Your existing CSS goes here */
+
+html {
+  color: #4d4d4d;
+  background-color: #ebeff1;
+  font-family: "Signika";
+  font-size: 16px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-form .comment-form__actions .button {
+  position: relative;
+  display: inline-block;
+  width: initial;
+  height: 35px;
+  padding: 0 10px;
+  margin-left: 15px;
+  background-color: white;
+  color: #4ab2d9;
+  line-height: 35px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid #4ab2d9;
+  -webkit-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.comment-form,
+.panel {
+  position: relative;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto 100px;
+}
+
+.response-group {
+  position: relative;
+  width: 100%;
+  padding: 100px 15px 15px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+}
+.response-group > header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 15px;
+  background-color: rgba(158, 156, 156, 0.75);
+  border-radius: 2px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+.response-group > header i {
+  margin: 0 10px 0 20px;
+}
+
+.response__number {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1.8rem;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  color: #89989c;
+  border: 2px solid #cdd7dc;
+  border-radius: 50%;
+}
+
+.response__title {
+  margin-left: 3.25rem;
+  margin-bottom: 50px;
+}
+
+.post-group {
+  margin-left: 3.5rem;
+}
+
+.post {
+  position: relative;
+  padding: 15px 15px 0 80px;
+  margin-bottom: 50px;
+  border: 1px solid #ebeff1;
+  border-bottom: none;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.post__author {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.post__timestamp {
+  margin-top: 0;
+}
+
+.like-dislike-count {
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.like-dislike-count i {
+  margin: 0 5px;
+}
+
+.comment-trigger {
+  float: right;
+}
+
+.post__actions {
+  height: auto; /* Change the height to auto */
+  width: 100%;
+  margin-left: 0; /* Remove negative margin */
+  margin-top: 15px;
+  background-color: #ebeff1;
+  border-top: 1px solid #ebeff1;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center align items vertically */
+  justify-content: space-between; /* Space between items */
+}
+
+.post__actions .button {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #cdd7dc;
+}
+
+.post__actions .button.comment-trigger {
+  border-right: none; /* Remove border for comment-trigger */
+}
+
+/* ... Your existing CSS ... */
+
+/* Add CSS rules to style the buttons and adjust the layout */
+.post__actions .button {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #cdd7dc;
+  cursor: pointer;
+}
+
+.post__actions .button.comment-trigger {
+  border-right: none; /* Remove border for comment-trigger */
+}
+
+/* Hide solid icon by default */
+.post__actions .button i.solid {
+  display: none;
+}
+
+/* Increase scale on active state */
+.post__actions .button:not(.comment):active i {
+  transform: scale(1.2);
+}
+
+/* Display solid icon on hover/active */
+.post__actions .button:not(.comment-trigger):hover i.solid,
+.post__actions .button:not(.comment-trigger).active i.solid {
+  display: inline-block;
+}
+
+/* Hide regular icon on hover/active */
+.post__actions .button:not(.comment-trigger):hover i:not(.solid),
+.post__actions .button:not(.comment-trigger).active i:not(.solid) {
+  display: none;
+}
+
+/* Set color for approve button */
+.post__actions .button:not(.comment-trigger):hover.button--approve,
+.post__actions .button:not(.comment-trigger).active.button--approve {
+  color: #5fbc71;
+}
+
+/* Set color for deny button */
+.post__actions .button:not(.comment-trigger):hover.button--deny,
+.post__actions .button:not(.comment-trigger).active.button--deny {
+  color: #f26f54;
+}
+
+/* Set color for comment button */
+.post__actions .button.comment-trigger:hover,
+.post__actions .button.comment-trigger.active {
+  color: #4ab2d9;
+}
+
+/* Display comments section when active */
+.post__actions.active .post__comments {
+  display: block;
+}
+
+/* Style comment textarea */
+.comment-form textarea {
+  width: calc(100% - 20px);
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #cdd7dc;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Style comment buttons */
+.comment-form__actions .button {
+  margin-left: 0;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #4ab2d9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.comment-form__actions .button.cancel {
+  background-color: #ddd;
+  color: #333;
+}
+/* Hide the comment box by default */
+.comment-form {
+  display: block;
+}
+
+.post__body {
+  overflow: hidden; /* Hide overflowing text */
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+  position: relative; /* Position relative for pseudo-element */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+
+.post__body::before {
+  content: ""; /* Empty content for the typing effect */
+  position: absolute; /* Position absolute to layer on top of the text */
+  top: 0;
+  left: 0; /* Start from inside the visible area */
+  width: 100%; /* Initially invisible */
+  height: 100%;
+  background-color: white; /* Adjust background color as needed */
+  animation: typing 4s linear forwards; /* Keep the final state */
+  z-index: 1; /* Ensure pseudo-element is above the text */
+}
+
+@keyframes typing {
+  0% {
+    left: 0; /* Start from inside the visible area */
+  }
+  100% {
+    left: 100%; /* Move to the right to reveal the text */
+  }
+}
+
+/* Hide the comments section by default */
+.post__comments {
+  display: none;
+}
