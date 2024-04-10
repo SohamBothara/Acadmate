@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,8 +25,6 @@
           name="name"
           required
         />
-        </form>
-        
 
         <label for="username">Username</label>
         <input
@@ -78,10 +74,10 @@
         <label for="branch">Branch</label>
         <select id="branch" name="branch" required>
           <option value="">Select Branch</option>
-          <option value="1">Computers</option>
-          <option value="2">IT</option>
-          <option value="3">EXCP</option>
-          <option value="4">EXTC</option>
+          <option value="Computers">Computers</option>
+          <option value="IT">IT</option>
+          <option value="EXCP">EXCP</option>
+          <option value="EXTC">EXTC</option>
         </select>
 
         <label for="semester">Current Semester</label>
@@ -97,7 +93,7 @@
           <option value="8">Semester 8</option>
         </select>
 
-        <button type="submit">Register</button>
+        <button type="submit" name="submit">Register</button>
       </form>
       <?php
     // Error messages
@@ -105,9 +101,9 @@
       if ($_GET["error"] == "emptyinput") {
         echo "<p>Fill in all fields!</p>";
       }
-      else if ($_GET["error"] == "invaliduid") {
-        echo "<p>Choose a proper username!</p>";
-      }
+      // else if ($_GET["error"] == "invaliduid") {
+      //   echo "<p>Choose a proper username!</p>";
+      // }
       else if ($_GET["error"] == "invalidemail") {
         echo "<p>Choose a proper email!</p>";
       }
