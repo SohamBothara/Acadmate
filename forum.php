@@ -1,17 +1,15 @@
 <?php
 // Database connection details
 $servername = "localhost";
-$username = "sohambothara"; // Change this if you have set a different username
-$password = "soham123"; // Change this if you have set a password
-$dbname = "forum_db"; // Create connection
+$username = "root"; // Change this if you have set a different username
+$password = ""; // Change this if you have set a password
+$dbname = "acadmate"; // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-
 
 // Fetch posts from the database
 $sql_posts = "SELECT * FROM post ORDER BY created_at DESC";
@@ -20,7 +18,6 @@ $result_posts = $conn->query($sql_posts);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if all required fields are filled
     if (empty($_POST["title"]) || empty($_POST["author"]) || empty($_POST["body"])) {
-        
     } else {
         $title = $_POST["title"];
         $author = $_POST["author"];
@@ -28,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO post (title, author, body, created_at) VALUES ('$title', '$author', '$body', NOW())";
         if ($conn->query($sql) === TRUE) {
             $success_message = "New post created successfully";
-
             // Fetch the newly added post
             $result_posts = $conn->query($sql_posts);
             $result_posts->data_seek(0);
@@ -57,30 +53,32 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
-        
     }
 } else {
     ;
 }
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discussion Forum</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./forum.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+    <header>
+        <?php include './header.php'; ?>
+    </header>
 <div class="container">
   <div class="response-group">
     <header>
-      <h2><strong>Discussion Forum</strong><i class="fa fa-angle-right"></i></h2>
+        <h2><strong>Discussion Forum</strong><i class="fa fa-angle-right"></i></h2>
     </header>
     
     <!-- New Post Button -->
@@ -100,8 +98,6 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
         <button class="cancel">Cancel</button>
       </div>
     </div>
-
-    
 
     <?php
     $post_count = 1;
@@ -195,7 +191,6 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
 
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./forum.js"></script>
 </body>
 </html>

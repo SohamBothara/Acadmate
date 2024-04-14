@@ -1,8 +1,5 @@
 body {
   background-color: #e9d7c4;
-}
-body {
-  background-color: #e9d7c4;
   font-family: "Signika", sans-serif;
   color: #4d4d4d;
   font-size: 16px;
@@ -14,7 +11,7 @@ body {
 .container {
   width: 90%;
   max-width: 900px;
-  margin: 50px auto 100px;
+  margin: 50px auto 90px;
 }
 
 .response-group {
@@ -145,7 +142,6 @@ ul {
   max-width: 900px;
   margin: 50px auto 100px;
 }
-
 .response-group {
   position: relative;
   width: 100%;

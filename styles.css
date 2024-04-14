@@ -64,6 +64,9 @@ body {
     background-color: #fff;
     color: #9E7B42;
   }
+   .nav-link.active {
+  font-weight: bold;
+}
   
   /* Footer */
   footer {

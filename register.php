@@ -63,13 +63,10 @@
         />
 
         <label for="college">College Name</label>
-        <input
-          type="text"
-          id="college"
-          placeholder="Enter your college name"
-          name="college"
-          required
-        />
+        <select id="college" name="college" required>
+          <option value="">Select College</option>
+          <option value="KJSCE">KJSCE</option>
+        </select>
 
         <label for="branch">Branch</label>
         <select id="branch" name="branch" required>
