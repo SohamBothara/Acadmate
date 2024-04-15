@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2024 at 11:09 AM
+-- Generation Time: Apr 15, 2024 at 11:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -135,10 +135,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `uid`, `pwd`, `college`, `branch`, `semester`) VALUES
-(1, 'Soham', 'soham.bot@gmail.com', 'soham.bot', '$2y$10$rM6nkDalQpLbnsJP2alS7uP/lQLIcTHrqoCJGae/r3CR4TPfTiTR2', 'kjsce', 'Computers', '4'),
-(2, 'Raghav Garg', 'raghav.garg@somaiya.edu', 'raghav.garg', '$2y$10$N5GdP5kair42w2ds/aJ3auxXutEvPVwte284klhm3GP6iLYNVn21K', 'kjsce', 'Computers', '5'),
-(3, 'abc', '123@gmail.com', 'abc', '$2y$10$J1vo59kWAgdpNqPPIhOebunWEx4pG2KRtsdbQF3.z4h/ak2Q1hfny', 'kjsce', 'Computers', '4'),
-(4, 'abc', 'abcd@gmail.com', 'abcd@gmail.com', '$2y$10$Md8.PnEG3.bvWNcmxx3QAey7Jt2YGdYXZthARW0TSzhG1TZ0doqxa', 'kjsce', 'Computers', '6');
+(6, 'Raghav', 'raghav.garg@gmail.com', 'rg', '$2y$10$MfUDa0hLWbjiN/YeBH.r9.eCvlShlfoKabDP19kZhRTPGne05M2V.', 'KJSCE', 'Computers', '5'),
+(7, 'Raghav Garg', 'raghav.garg@somaiya.edu', 'raghav.garg', '$2y$10$kSZz1lqk9/6pbHNeGyeLE..8XIWoEIG6uv4I5N0Mw.tATQK963xFK', 'KJSCE', 'Computers', '5');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +205,7 @@ ALTER TABLE `post_likes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
