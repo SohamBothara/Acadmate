@@ -8,11 +8,10 @@
   <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-  <?php include './header.php'; ?>
-  <h1>AcadMate!</h1>
+  <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>AcadMate!</h1></a>
   <div class="container">
     <h2>Login</h2>
-    <form action="./includes/login.inc.php" method="post">
+    <form  action="login.inc.php" method="post">
       <label for="email">Student Email</label>
       <input type="email" id="email" placeholder="Enter your email" name="email" required>
 
@@ -22,9 +21,12 @@
       <button type="submit">Login</button>
     </form>
     <div class="additional-links">
-      <a href="./register.php">New User ?</a>
+      <a href="./register.html">New User ?</a>
       <a href="#">Forgot Password</a>
     </div>
   </div>
+
+  
+
 </body>
 </html>

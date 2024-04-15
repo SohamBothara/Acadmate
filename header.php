@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-         <a class="nav-link" href="./index.html">Home</a>
+         <a class="nav-link" href="./index.php">Home</a>
         </li>
         <li class="nav-item">
          <a class="nav-link" href="./forum.php">Forum</a>
@@ -33,16 +33,13 @@
          <a class="nav-link" href="#">Search</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="#">Profile</a>
+         <a class="nav-link" href="./profile.php">Profile</a>
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item">
-         <a class="nav-link btn btn-primary mr-2" href="./login.html">Login</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link btn btn-primary mr-2" href="./register.php">Register</a>
-        </li>
+        <?php
+        include 'login_check.php';
+        ?>
       </ul>
     </div>
   </div>
