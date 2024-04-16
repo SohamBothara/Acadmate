@@ -90,13 +90,13 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
     // Check if both comment_body and post_id are not empty
     if (!empty($comment_body) && !empty($post_id)) {
         // Assuming $conn is your database connection
-        $sql = "INSERT INTO comment (post_id, body, created_at) VALUES ('$post_id', '$comment_body', NOW())";
+        $sql = "INSERT INTO comment (post_id,author, body, created_at) VALUES ('$post_id',' $author', '$comment_body', NOW())";
         if ($conn->query($sql) === TRUE) {
             echo "New comment created successfully";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-        header("Location: {$_SERVER['PHP_SELF']}");
+         header("Location: {$_SERVER['PHP_SELF']}");
     } else {
     }
 } else {
@@ -210,6 +210,7 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
                     while ($row_comment = $result_comments->fetch_assoc()) {
                     ?>
                         <div class="comment">
+                            <p class="comment__author"><?php echo $row_comment['author']; ?></p>
                             <p class="comment__timestamp"><?php echo $row_comment['created_at']; ?></p>
                             <p class="comment__body"><b><?php echo $row_comment['body']; ?></b></p>
                         </div>
