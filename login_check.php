@@ -2,7 +2,7 @@
 session_start();
 // Check if user is logged in
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    echo '<li class="nav-item"><span class="nav-link">Welcome back, ' . $_SESSION['username'] . '!</span></li>';
+    echo '<li class="nav-item"><span class="nav-link">Welcome back, ' . $_SESSION['username'] . '! &middot; </span></li>';
     echo '<li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>';
     echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
 } else {

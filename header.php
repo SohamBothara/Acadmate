@@ -32,9 +32,6 @@
         <li class="nav-item">
          <a class="nav-link" href="#">Search</a>
         </li>
-        <li class="nav-item">
-         <a class="nav-link" href="./profile.php">Profile</a>
-        </li>
       </ul>
       <ul class="navbar-nav">
         <?php

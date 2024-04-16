@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function isPasswordStrong(password) {
     const regex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$";
     return regex.test(password);
   }
 
   passwordInput.addEventListener("input", function () {
     if (!isPasswordStrong(passwordInput.value)) {
       passwordInput.setCustomValidity(
-        "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+        "Password must have at least eight characters, at least one letter, one number and one special character."
       );
     } else {
       passwordInput.setCustomValidity("");

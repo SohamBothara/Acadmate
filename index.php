@@ -78,8 +78,7 @@
             <p>&copy; 2023 AcadMate. All rights reserved.</p>
           </div>
           <div class="col-md-6 text-md-right">
-            <a href="#" class="mr-3">About Us</a>
-            <a href="#" class="mr-3">Contact</a>
+            <a href="./aboutus.html" class="mr-3">About Us</a>
           </div>
         </div>
       </div>

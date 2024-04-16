@@ -1,0 +1,145 @@
+/* Global Styles */
+body {
+  font-family: "Inter", sans-serif;
+  color: #333;
+  background-color: #e9d7c4;
+  margin: 0;
+  padding: 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url("path_to_hero_background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* About Us Section */
+.about-us-container {
+  padding: 80px 0;
+}
+
+.team-member {
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.testimonial {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial blockquote {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+}
+
+/* Mission and Values Section */
+.mission-values-section {
+  padding: 80px 0;
+}
+
+.mission-value {
+  text-align: center;
+  padding: 30px;
+}
+
+.mission-value i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+  background-color: #007bff;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-size: 18px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+.navbar-toggler {
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav.ml-auto {
+    margin-top: 10px;
+  }
+}

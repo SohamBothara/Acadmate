@@ -8,6 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.post__timestamp,
+.comment_timestamp {
+  font-size: 10px;
+}
+
 .container {
   width: 90%;
   max-width: 900px;
