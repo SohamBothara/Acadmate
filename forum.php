@@ -13,6 +13,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
+
+// Array to store post titles and corresponding comment counts
+$postData = [];
+
+// Retrieve posts data from the database
+$sql_posts = "SELECT * FROM post ORDER BY created_at DESC";
+$result_posts = $conn->query($sql_posts);
+
+while ($row_post = $result_posts->fetch_assoc()) {
+    $post_id = $row_post['id'];
+
+    // Count comments for each post
+    $sql_comments_count = "SELECT COUNT(*) AS comments FROM comment WHERE post_id = '$post_id'";
+    $result_comments_count = $conn->query($sql_comments_count);
+    $comments_count = $result_comments_count->fetch_assoc()['comments'];
+
+    // Store post title and comment count in the array
+    $postData[$row_post['title']] = $comments_count;
+}
+
+
 // Fetch posts from the database
 $sql_posts = "SELECT * FROM post ORDER BY created_at DESC";
 $result_posts = $conn->query($sql_posts);
@@ -74,6 +96,7 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        header("Location: {$_SERVER['PHP_SELF']}");
     } else {
     }
 } else {
@@ -92,6 +115,8 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <?php include './header1.php'; ?>
@@ -208,10 +233,47 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
     <?php
     }
     ?>
-
+<!-- Canvas for Chart -->
+<div class="chart-container">
+        <canvas id="postCommentChart" width="400" height="200"></canvas>
+    </div>
 </div>
 
 <script src="./forum.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get post titles and comment counts from PHP data
+    var postTitles = <?php echo json_encode(array_keys($postData)); ?>;
+    var commentCounts = <?php echo json_encode(array_values($postData)); ?>;
+
+    // Set up the chart
+    var ctx = document.getElementById('postCommentChart').getContext('2d');
+    var postCommentChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: postTitles,
+            datasets: [{
+                label: 'Number of Comments',
+                data: commentCounts,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }]
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>
 
