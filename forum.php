@@ -1,4 +1,6 @@
 <?php
+ session_start();
+ 
 // Database connection details
 $servername = "localhost";
 $username = "root"; // Change this if you have set a different username
@@ -15,25 +17,45 @@ if ($conn->connect_error) {
 $sql_posts = "SELECT * FROM post ORDER BY created_at DESC";
 $result_posts = $conn->query($sql_posts);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required fields are filled
-    if (empty($_POST["title"]) || empty($_POST["author"]) || empty($_POST["body"])) {
-    } else {
-        $title = $_POST["title"];
-        $author = $_POST["author"];
-        $body = $_POST["body"];
-        $sql = "INSERT INTO post (title, author, body, created_at) VALUES ('$title', '$author', '$body', NOW())";
-        if ($conn->query($sql) === TRUE) {
-            $success_message = "New post created successfully";
-            // Fetch the newly added post
-            $result_posts = $conn->query($sql_posts);
-            $result_posts->data_seek(0);
-        } else {
-            $error_message = "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
+// Check if user is logged in and retrieve author from session
+if (isset($_SESSION['username'])) {
+    $author = $_SESSION['username'];
+} else {
+    // Handle case where username is not set in session
+    // You can redirect the user to the login page or handle this situation appropriately
+    // header("Location: login.html");
+    // exit();
 }
 
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST["title"]) && !empty($_POST["body"])) {
+        $title = $_POST["title"];
+        $body = $_POST["body"];
+        
+        // Insert new post into database
+        $sql = "INSERT INTO post (title, author, body, created_at) VALUES (?, ?, ?, NOW())";
+        
+        // Prepare and execute the statement
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('sss', $title, $author, $body);
+        
+        if ($stmt->execute()) {
+            $success_message = "New post created successfully";
+        } else {
+            $error_message = "Error creating post: " . $stmt->error;
+        }
+        
+        // Close statement
+        $stmt->close();
+        
+        // Redirect to same page to prevent form resubmission on refresh
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+    } else {
+        $error_message = "Please fill in all required fields";
+    }
+}
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $sql_posts = "SELECT * FROM post ORDER BY created_at DESC";
     $result_posts = $conn->query($sql_posts);
@@ -72,9 +94,7 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <header>
-        <?php include './header.php'; ?>
-    </header>
+    <?php include './header1.php'; ?>
 <div class="container">
   <div class="response-group">
     <header>
@@ -90,7 +110,7 @@ if (isset($_POST["comment_body"]) && isset($_POST["post_id"])) {
         <h2>Create New Post</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="text" name="title" placeholder="Title" required>
-            <input type="text" name="author" placeholder="Author"required>  
+            <input type="text" name="author" placeholder="Author" value="<?php echo htmlspecialchars($author); ?>" readonly><br>  
             <textarea name="body" placeholder="Description" required></textarea>
             <button type="submit">Submit</button>
           </form>
